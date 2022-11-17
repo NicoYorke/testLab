@@ -12,12 +12,19 @@ module.exports = {
     }
     // Save to DB
     // TODO check if user already exists
+    // db.hmset(user.username, userObj, (err, res) => {
+    //   if (err) return callback(err, null)
+    //   callback(null, res) // Return callback
+    // })
     db.hmset(user.username, userObj, (err, res) => {
       if (err) return callback(err, null)
       callback(null, res) // Return callback
     })
   },
-  // get: (username, callback) => {
-  //   // TODO create this method
-  // }
+  get: (username, callback) => {
+    db.hget(username, "firstname", (err, res) => { 
+      console.log(res);
+      callback(null, res);
+    })
+  }
 }
