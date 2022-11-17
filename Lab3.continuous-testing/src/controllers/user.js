@@ -10,6 +10,7 @@ module.exports = {
       firstname: user.firstname,
       lastname: user.lastname,
     }
+    console.log("User almost created !")
     // Save to DB
     // TODO check if user already exists
     db.hmset(user.username, userObj, (err, res) => {
